@@ -1,4 +1,6 @@
 {
   "itemGroup.anything-blocks": "Anything Items",
-  "block.anything-blocks.raw_pork_block": "Block of Raw Pork"
+
+  "item.anything-blocks.pork_block": "Block of Raw Pork",
+  "item.anything-blocks.cooked_pork_block": "Block of Cooked Pork"
 }

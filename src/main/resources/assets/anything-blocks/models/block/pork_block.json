@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "anything-blocks:block/raw_pork_block"
+    "all": "anything-blocks:block/pork_block"
   }
 }
