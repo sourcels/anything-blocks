@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "anything-blocks:pork_block"
+  ],
+  "result": {
+    "item": "minecraft:porkchop",
+    "count": 9
+  }
+}
