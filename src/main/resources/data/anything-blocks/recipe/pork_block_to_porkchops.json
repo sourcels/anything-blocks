@@ -5,7 +5,7 @@
     "anything-blocks:pork_block"
   ],
   "result": {
-    "item": "minecraft:porkchop",
-    "count": 9
+    "count": 9,
+    "id": "minecraft:porkchop"
   }
 }

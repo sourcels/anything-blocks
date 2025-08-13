@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "building",
+  "key": {
+    "#": "minecraft:porkchop"
+  },
   "pattern": [
     "###",
     "###",
     "###"
   ],
-  "key": {
-    "#": "minecraft:porkchop"
-  },
   "result": {
-    "item": "anything-blocks:pork_block",
-    "count": 1
+    "count": 1,
+    "id": "anything-blocks:pork_block"
   }
 }
