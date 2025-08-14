@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "anything-blocks:block/golden_apple_block"
+  }
+}

@@ -20,22 +20,43 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final List<Block> MOD_BLOCKS = new ArrayList<>();
 
-    public static final Block PORK_BLOCK = register(
-            "pork_block",
+    public static final Block GOLDEN_APPLE_BLOCK = register(
+            "golden_apple_block",
             Block::new,
             AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.RESIN)
+                    .sounds(BlockSoundGroup.WOOD)
                     .burnable()
                     .strength(1.2f)
                     .pistonBehavior(PistonBehavior.DESTROY)
     );
 
-    public static final Block COOKED_PORK_BLOCK = register(
-            "cooked_pork_block",
+    public static final Block APPLE_BLOCK = register(
+            "apple_block",
             Block::new,
             AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+                    .strength(1.2f)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
+
+    public static final Block PORK_BLOCK = register(
+            "pork_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
                     .sounds(BlockSoundGroup.RESIN)
-                    .strength(2f)
+                    .burnable()
+                    .strength(2.2f)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+    );
+
+    public static final Block COOKED_PORK_BLOCK = register(
+            "cooked_pork_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.RESIN)
+                    .burnable()
+                    .strength(2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY)
     );
 

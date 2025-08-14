@@ -1,6 +1,14 @@
 {
-  "itemGroup.anything-blocks": "Anything Items",
+  "itemGroup.anything-blocks": "Anything Blocks",
 
+  "item.anything-blocks.apple_block": "Block of Apple",
+  "item.anything-blocks.golden_apple_block": "Block of Golden Apple",
+  "item.anything-blocks.enchanted_golden_apple_block": "Block of Enchanted Golden Apple",
+  "item.anything-blocks.sweet_berries_block": "Block of Sweet Berries",
+  "item.anything-blocks.glow_berries_block": "Block of Glow Berries",
+  "item.anything-blocks.golden_carrot": "Block of Golden Carrot",
+  "item.anything-blocks.potato_block": "Block of Potato",
   "item.anything-blocks.pork_block": "Block of Raw Pork",
-  "item.anything-blocks.cooked_pork_block": "Block of Cooked Pork"
+  "item.anything-blocks.cooked_pork_block": "Block of Cooked Pork",
+  "item.anything-blocks.bread_block": "Block of Bread"
 }
