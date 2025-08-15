@@ -10,15 +10,16 @@
       "fabric-api": "*"
     },
     "suggests": {
-      "another-mod": "*"
+      "continuity": "*"
     },
 	"name": "Anything Blocks",
-	"description": "Mod that provides to turn any item into blocks!",
+	"description": "Mod that provides to turn any item or food into blocks!",
 	"authors": [
 		"sourcels"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/anything-blocks",
+        "issues": "https://github.com/sourcels/anything-blocks/issues",
 		"sources": "https://github.com/sourcels/anything-blocks"
 	},
 	"license": "MIT",
