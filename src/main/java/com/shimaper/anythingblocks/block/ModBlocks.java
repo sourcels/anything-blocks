@@ -68,7 +68,6 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.METAL)
                     .instrument(NoteBlockInstrument.BELL)
                     .requiresTool()
-                    .burnable()
                     .strength(3.0f, 6.0f)
                     .pistonBehavior(PistonBehavior.IGNORE),
             BlockGroup.FOOD,
@@ -83,7 +82,6 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.METAL)
                     .instrument(NoteBlockInstrument.BELL)
                     .requiresTool()
-                    .burnable()
                     .strength(3.0f, 6.0f)
                     .pistonBehavior(PistonBehavior.IGNORE)
                     .luminance((state) -> 8),
@@ -117,6 +115,32 @@ public class ModBlocks {
             false
     );
 
+    public static final Block CHORUS_FRUIT_BLOCK = register(
+            "chorus_fruit_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PURPLE)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+                    .strength(1.75f, 1.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block CARROT_BLOCK = register(
+            "carrot_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.YELLOW)
+                    .sounds(BlockSoundGroup.BAMBOO_WOOD)
+                    .burnable()
+                    .strength(2.0f, 1f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
     public static final Block GOLDEN_CARROT_BLOCK = register(
             "golden_carrot_block",
             Block::new,
@@ -124,7 +148,6 @@ public class ModBlocks {
                     .mapColor(MapColor.TERRACOTTA_YELLOW)
                     .sounds(BlockSoundGroup.METAL)
                     .requiresTool()
-                    .burnable()
                     .strength(3.0f, 5.5f)
                     .pistonBehavior(PistonBehavior.IGNORE),
             BlockGroup.FOOD,
@@ -138,7 +161,72 @@ public class ModBlocks {
                     .mapColor(MapColor.STONE_GRAY)
                     .sounds(BlockSoundGroup.BAMBOO_WOOD)
                     .burnable()
-                    .strength(2.5f, 2.5f)
+                    .strength(2.5f, 2f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block BAKED_POTATO_BLOCK = register(
+            "baked_potato_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY)
+                    .sounds(BlockSoundGroup.NETHERRACK)
+                    .burnable()
+                    .strength(2.5f, 1.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block POISONOUS_POTATO_BLOCK = register(
+            "poisonous_potato_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.LICHEN_GREEN)
+                    .sounds(BlockSoundGroup.WET_GRASS)
+                    .burnable()
+                    .strength(2.0f, 1.5f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block BEETROOT_BLOCK = register(
+            "beetroot_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_RED)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .burnable()
+                    .strength(2.0f, 1.5f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block BEEF_BLOCK = register(
+            "beef_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.RED)
+                    .sounds(BlockSoundGroup.RESIN)
+                    .burnable()
+                    .strength(2.2f, 2.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
+    public static final Block COOKED_BEEF_BLOCK = register(
+            "cooked_beef_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .sounds(BlockSoundGroup.RESIN)
+                    .burnable()
+                    .strength(2.2f, 2.0f)
                     .pistonBehavior(PistonBehavior.DESTROY),
             BlockGroup.FOOD,
             false
@@ -151,7 +239,7 @@ public class ModBlocks {
                     .mapColor(MapColor.RED)
                     .sounds(BlockSoundGroup.RESIN)
                     .burnable()
-                    .strength(2.2f)
+                    .strength(2.2f, 2.0f)
                     .pistonBehavior(PistonBehavior.DESTROY),
             BlockGroup.FOOD,
             false
@@ -164,7 +252,7 @@ public class ModBlocks {
                     .mapColor(MapColor.ORANGE)
                     .sounds(BlockSoundGroup.RESIN)
                     .burnable()
-                    .strength(2.2f)
+                    .strength(2.2f, 2.0f)
                     .pistonBehavior(PistonBehavior.DESTROY),
             BlockGroup.FOOD,
             false

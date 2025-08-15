@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "anything-blocks:block/poisonous_potato_block"
+    }
+  }
+}

@@ -4,7 +4,12 @@
     "anything-blocks:apple_block",
     "anything-blocks:sweet_berries_block",
     "anything-blocks:glow_berries_block",
+    "anything-blocks:chorus_fruit_block",
     "anything-blocks:potato_block",
+    "anything-blocks:baked_potato_block",
+    "anything-blocks:poisonous_potato_block",
+    "anything-blocks:beetroot_block",
+    "anything-blocks:carrot_block",
     "anything-blocks:bread_block"
   ]
 }

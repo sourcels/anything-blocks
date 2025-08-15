@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "anything-blocks:block/carrot_block"
+  }
+}

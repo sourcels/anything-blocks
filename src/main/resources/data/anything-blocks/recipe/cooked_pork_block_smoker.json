@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "blocks",
+  "cookingtime": 630,
+  "experience": 3.15,
+  "ingredient": "anything-blocks:pork_block",
+  "result": {
+    "id": "anything-blocks:cooked_pork_block"
+  }
+}
