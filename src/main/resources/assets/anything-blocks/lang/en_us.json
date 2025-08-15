@@ -1,14 +1,41 @@
 {
-  "itemGroup.anything-blocks": "Anything Blocks",
+  "itemGroup.anything-blocks.food": "Food Blocks",
 
   "item.anything-blocks.apple_block": "Block of Apple",
   "item.anything-blocks.golden_apple_block": "Block of Golden Apple",
   "item.anything-blocks.enchanted_golden_apple_block": "§bBlock of Enchanted Golden Apple",
   "item.anything-blocks.sweet_berries_block": "Block of Sweet Berries",
   "item.anything-blocks.glow_berries_block": "Block of Glow Berries",
+  "item.anything-blocks.chorus_fruit_block": "Block of Chorus Fruit",
+  "item.anything-blocks.carrot_block": "Block of Carrot",
   "item.anything-blocks.golden_carrot_block": "Block of Golden Carrot",
   "item.anything-blocks.potato_block": "Block of Potato",
+  "item.anything-blocks.baked_potato_block": "Block of Backed Potato",
+  "item.anything-blocks.poisonous_potato_block": "Block of Poisonous Potato",
+  "item.anything-blocks.beetroot_block": "Block of Beetroot",
+  "item.anything-blocks.beef_block": "Block of Raw Beef",
+  "item.anything-blocks.cooked_beef_block": "Block of Steak",
   "item.anything-blocks.pork_block": "Block of Raw Pork",
   "item.anything-blocks.cooked_pork_block": "Block of Cooked Pork",
-  "item.anything-blocks.bread_block": "Block of Bread"
+  "item.anything-blocks.mutton_block": "Block of Mutton",
+  "item.anything-blocks.cooked_mutton_block": "Block of Cooked Mutton",
+  "item.anything-blocks.chicken_block": "Block of Raw Chicken",
+  "item.anything-blocks.cooked_chicken_block": "Block of Cooked Chicken",
+  "item.anything-blocks.rabbit_block": "Block of Raw Rabbit",
+  "item.anything-blocks.cooked_rabbit_block": "Block of Cooked Rabbit",
+  "item.anything-blocks.cod_block": "Block of Raw Cod",
+  "item.anything-blocks.cooked_cod_block": "Block of Cooked Cod",
+  "item.anything-blocks.salmon_block": "Block of Raw Salmon",
+  "item.anything-blocks.cooked_salmon_block": "Block of Cooked Salmon",
+  "item.anything-blocks.tropical_fish_block": "Block of Tropical Fish",
+  "item.anything-blocks.pufferfish_block": "Block of Pufferfish",
+  "item.anything-blocks.bread_block": "Block of Bread",
+  "item.anything-blocks.cookie_block": "Block of Cookies",
+  "item.anything-blocks.pumpkin_pie_block": "Block of Pumpkin Pies",
+  "item.anything-blocks.rotten_flesh_block": "Block of Rotten Flesh",
+  "item.anything-blocks.spider_eye_block": "Block of Spider Eyes",
+
+  "itemGroup.anything-blocks.material": "Material Blocks",
+
+  "itemGroup.anything-blocks.misc": "Misc Blocks"
 }

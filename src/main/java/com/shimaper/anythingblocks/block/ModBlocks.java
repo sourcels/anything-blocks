@@ -17,11 +17,36 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Collections;
 import java.util.function.Function;
 
 public class ModBlocks {
-    public static final List<Block> MOD_BLOCKS = new ArrayList<>();
+    public enum BlockGroup {
+        FOOD("food"),
+        MATERIAL("material"),
+        MISC("misc");
+
+        private final String name;
+
+        BlockGroup(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    private static final Map<BlockGroup, List<Block>> BLOCK_GROUPS = new EnumMap<>(BlockGroup.class);
+
+    static {
+        for (BlockGroup group : BlockGroup.values()) {
+            BLOCK_GROUPS.put(group, new ArrayList<>());
+        }
+    }
 
     public static final Block APPLE_BLOCK = register(
             "apple_block",
@@ -31,7 +56,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(1.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -46,7 +71,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(3.0f, 6.0f)
                     .pistonBehavior(PistonBehavior.IGNORE),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -62,7 +87,7 @@ public class ModBlocks {
                     .strength(3.0f, 6.0f)
                     .pistonBehavior(PistonBehavior.IGNORE)
                     .luminance((state) -> 8),
-            true,
+            BlockGroup.FOOD,
             true
     );
 
@@ -75,7 +100,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(1.5f, 1.0f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -88,7 +113,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(1.5f, 1.0f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -102,7 +127,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(3.0f, 5.5f)
                     .pistonBehavior(PistonBehavior.IGNORE),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -115,7 +140,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(2.5f, 2.5f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -128,7 +153,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -141,7 +166,7 @@ public class ModBlocks {
                     .burnable()
                     .strength(2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
@@ -154,27 +179,25 @@ public class ModBlocks {
                     .burnable()
                     .strength(2.2f, 2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
-            true,
+            BlockGroup.FOOD,
             false
     );
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory,
-                                  AbstractBlock.Settings settings, boolean shouldRegisterItem, boolean isGlowingItem) {
+                                  AbstractBlock.Settings settings, BlockGroup group, boolean isGlowingItem) {
         RegistryKey<Block> blockKey = keyOfBlock(name);
         Block block = blockFactory.apply(settings.registryKey(blockKey));
         RegistryKey<Item> itemKey = keyOfItem(name);
-        BlockItem blockItem;
-        if (shouldRegisterItem) {
-            if (isGlowingItem) {
-                blockItem = new GlowingBlockItem(block, new Item.Settings().registryKey(itemKey));
-            }
-            else {
-                blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
-            }
-            Registry.register(Registries.ITEM, itemKey, blockItem);
 
-            MOD_BLOCKS.add(block);
+        BlockItem blockItem;
+        if (isGlowingItem) {
+            blockItem = new GlowingBlockItem(block, new Item.Settings().registryKey(itemKey));
+        } else {
+            blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
         }
+
+        Registry.register(Registries.ITEM, itemKey, blockItem);
+        BLOCK_GROUPS.get(group).add(block);
 
         return Registry.register(Registries.BLOCK, blockKey, block);
     }
@@ -187,7 +210,28 @@ public class ModBlocks {
         return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(AnythingBlocks.MOD_ID, name));
     }
 
+    public static List<Block> getBlocksInGroup(BlockGroup group) {
+        return Collections.unmodifiableList(BLOCK_GROUPS.get(group));
+    }
+
+    public static Map<BlockGroup, List<Block>> getAllBlockGroups() {
+        Map<BlockGroup, List<Block>> result = new EnumMap<>(BlockGroup.class);
+        for (Map.Entry<BlockGroup, List<Block>> entry : BLOCK_GROUPS.entrySet()) {
+            result.put(entry.getKey(), Collections.unmodifiableList(entry.getValue()));
+        }
+        return result;
+    }
+
+    public static List<Block> getModBlocksFood() {
+        return getBlocksInGroup(BlockGroup.FOOD);
+    }
+
     public static void initialize() {
         AnythingBlocks.LOGGER.info("Registering blocks for " + AnythingBlocks.MOD_ID);
+
+        for (BlockGroup group : BlockGroup.values()) {
+            int count = BLOCK_GROUPS.get(group).size();
+            AnythingBlocks.LOGGER.info("Registered " + count + " blocks in group: " + group.getName());
+        }
     }
 }

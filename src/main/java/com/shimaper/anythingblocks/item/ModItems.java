@@ -15,51 +15,112 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 
 public class ModItems {
-    public static final List<Item> MOD_ITEMS = new ArrayList<>();
+    private static final Map<ModBlocks.BlockGroup, List<Item>> ITEM_GROUPS = new EnumMap<>(ModBlocks.BlockGroup.class);
 
-    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(
+    public static final RegistryKey<ItemGroup> FOOD_GROUP_KEY = RegistryKey.of(
             Registries.ITEM_GROUP.getKey(),
-            Identifier.of(AnythingBlocks.MOD_ID, "item_group")
+            Identifier.of(AnythingBlocks.MOD_ID, "food")
     );
 
-    public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ModBlocks.PORK_BLOCK.asItem()))
-            .displayName(Text.translatable("itemGroup." + AnythingBlocks.MOD_ID))
+    public static final RegistryKey<ItemGroup> MATERIAL_GROUP_KEY = RegistryKey.of(
+            Registries.ITEM_GROUP.getKey(),
+            Identifier.of(AnythingBlocks.MOD_ID, "material")
+    );
+
+    public static final RegistryKey<ItemGroup> MISC_GROUP_KEY = RegistryKey.of(
+            Registries.ITEM_GROUP.getKey(),
+            Identifier.of(AnythingBlocks.MOD_ID, "misc")
+    );
+
+    // Item groups with proper localization paths
+    public static final ItemGroup FOOD_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
+            .displayName(Text.translatable("itemGroup.anything-blocks.food"))
             .build();
 
-    //public static final Item NEW_ITEM = register(
-    //        "new_item",
-    //        Item::new,
-    //        new Item.Settings()
-    //);
+    public static final ItemGroup MATERIAL_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
+            .displayName(Text.translatable("itemGroup.anything-blocks.material"))
+            .build();
 
-    public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+    public static final ItemGroup MISC_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
+            .displayName(Text.translatable("itemGroup.anything-blocks.misc"))
+            .build();
+
+    static {
+        for (ModBlocks.BlockGroup group : ModBlocks.BlockGroup.values()) {
+            ITEM_GROUPS.put(group, new ArrayList<>());
+        }
+    }
+
+    public static Item register(String name, Function<Item.Settings, Item> itemFactory,
+                                Item.Settings settings, ModBlocks.BlockGroup group) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(AnythingBlocks.MOD_ID, name));
         Item item = itemFactory.apply(settings.registryKey(itemKey));
         Registry.register(Registries.ITEM, itemKey, item);
 
-        MOD_ITEMS.add(item);
-
+        ITEM_GROUPS.get(group).add(item);
         return item;
+    }
+
+    public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+        return register(name, itemFactory, settings, ModBlocks.BlockGroup.MISC);
+    }
+
+    public static List<Item> getItemsInGroup(ModBlocks.BlockGroup group) {
+        return Collections.unmodifiableList(ITEM_GROUPS.get(group));
+    }
+
+    public static Map<ModBlocks.BlockGroup, List<Item>> getAllItemGroups() {
+        Map<ModBlocks.BlockGroup, List<Item>> result = new EnumMap<>(ModBlocks.BlockGroup.class);
+        for (Map.Entry<ModBlocks.BlockGroup, List<Item>> entry : ITEM_GROUPS.entrySet()) {
+            result.put(entry.getKey(), Collections.unmodifiableList(entry.getValue()));
+        }
+        return result;
     }
 
     public static void initialize() {
         AnythingBlocks.LOGGER.info("Registering item groups for " + AnythingBlocks.MOD_ID);
 
-        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, FOOD_GROUP_KEY, FOOD_GROUP);
+        Registry.register(Registries.ITEM_GROUP, MATERIAL_GROUP_KEY, MATERIAL_GROUP);
+        Registry.register(Registries.ITEM_GROUP, MISC_GROUP_KEY, MISC_GROUP);
 
-        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-            for (Block block : ModBlocks.MOD_BLOCKS) {
+        ItemGroupEvents.modifyEntriesEvent(FOOD_GROUP_KEY).register((itemGroup) -> {
+            for (Block block : ModBlocks.getBlocksInGroup(ModBlocks.BlockGroup.FOOD)) {
                 itemGroup.add(block.asItem());
             }
-            for (Item item : MOD_ITEMS) {
+            for (Item item : ITEM_GROUPS.get(ModBlocks.BlockGroup.FOOD)) {
                 itemGroup.add(item);
             }
         });
+
+        ItemGroupEvents.modifyEntriesEvent(MATERIAL_GROUP_KEY).register((itemGroup) -> {
+            for (Block block : ModBlocks.getBlocksInGroup(ModBlocks.BlockGroup.MATERIAL)) {
+                itemGroup.add(block.asItem());
+            }
+            for (Item item : ITEM_GROUPS.get(ModBlocks.BlockGroup.MATERIAL)) {
+                itemGroup.add(item);
+            }
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(MISC_GROUP_KEY).register((itemGroup) -> {
+            for (Block block : ModBlocks.getBlocksInGroup(ModBlocks.BlockGroup.MISC)) {
+                itemGroup.add(block.asItem());
+            }
+            for (Item item : ITEM_GROUPS.get(ModBlocks.BlockGroup.MISC)) {
+                itemGroup.add(item);
+            }
+        });
+        for (ModBlocks.BlockGroup group : ModBlocks.BlockGroup.values()) {
+            int itemCount = ITEM_GROUPS.get(group).size();
+            int blockCount = ModBlocks.getBlocksInGroup(group).size();
+            AnythingBlocks.LOGGER.info("Group " + group.getName() + ": " + itemCount + " items, " + blockCount + " blocks");
+        }
     }
 }
