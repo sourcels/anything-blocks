@@ -1,8 +1,11 @@
 package com.shimaper.anythingblocks.block;
 
 import com.shimaper.anythingblocks.AnythingBlocks;
+import com.shimaper.anythingblocks.item.GlowingBlockItem;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -20,16 +23,6 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final List<Block> MOD_BLOCKS = new ArrayList<>();
 
-    public static final Block GOLDEN_APPLE_BLOCK = register(
-            "golden_apple_block",
-            Block::new,
-            AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.WOOD)
-                    .burnable()
-                    .strength(1.2f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
-    );
-
     public static final Block APPLE_BLOCK = register(
             "apple_block",
             Block::new,
@@ -37,41 +30,81 @@ public class ModBlocks {
                     .sounds(BlockSoundGroup.WOOD)
                     .burnable()
                     .strength(1.2f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
+    );
+
+    public static final Block GOLDEN_APPLE_BLOCK = register(
+            "golden_apple_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GOLD)
+                    .sounds(BlockSoundGroup.METAL)
+                    .instrument(NoteBlockInstrument.BELL)
+                    .requiresTool()
+                    .burnable()
+                    .strength(3.0f, 6.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
+    );
+
+    public static final Block ENCHANTED_GOLDEN_APPLE_BLOCK = register(
+            "enchanted_golden_apple_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.GOLD)
+                    .sounds(BlockSoundGroup.METAL)
+                    .instrument(NoteBlockInstrument.BELL)
+                    .requiresTool()
+                    .burnable()
+                    .strength(3.0f, 6.0f)
                     .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance((state) -> 8),
+            true,
+            true
     );
 
     public static final Block PORK_BLOCK = register(
             "pork_block",
             SwordBreakableBlock::new,
             AbstractBlock.Settings.create()
+                    .mapColor(MapColor.RED)
                     .sounds(BlockSoundGroup.RESIN)
                     .burnable()
                     .strength(2.2f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
     );
 
     public static final Block COOKED_PORK_BLOCK = register(
             "cooked_pork_block",
             SwordBreakableBlock::new,
             AbstractBlock.Settings.create()
+                    .mapColor(MapColor.RED)
                     .sounds(BlockSoundGroup.RESIN)
                     .burnable()
                     .strength(2.2f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
     );
 
-    private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings) {
-        return register(name, blockFactory, settings, true);
-    }
-
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory,
-                                  AbstractBlock.Settings settings, boolean shouldRegisterItem) {
+                                  AbstractBlock.Settings settings, boolean shouldRegisterItem, boolean isGlowingItem) {
         RegistryKey<Block> blockKey = keyOfBlock(name);
         Block block = blockFactory.apply(settings.registryKey(blockKey));
-
+        RegistryKey<Item> itemKey = keyOfItem(name);
+        BlockItem blockItem;
         if (shouldRegisterItem) {
-            RegistryKey<Item> itemKey = keyOfItem(name);
-            BlockItem blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+            if (isGlowingItem) {
+                blockItem = new GlowingBlockItem(block, new Item.Settings().registryKey(itemKey));
+            }
+            else {
+                blockItem = new BlockItem(block, new Item.Settings().registryKey(itemKey));
+            }
             Registry.register(Registries.ITEM, itemKey, blockItem);
 
             MOD_BLOCKS.add(block);
