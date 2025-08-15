@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "anything-blocks:pork_block"
+          "name": "anything-blocks:glow_berries_block"
         }
       ],
       "rolls": 1.0

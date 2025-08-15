@@ -45,7 +45,7 @@ public class ModBlocks {
                     .requiresTool()
                     .burnable()
                     .strength(3.0f, 6.0f)
-                    .pistonBehavior(PistonBehavior.DESTROY),
+                    .pistonBehavior(PistonBehavior.IGNORE),
             true,
             false
     );
@@ -60,10 +60,63 @@ public class ModBlocks {
                     .requiresTool()
                     .burnable()
                     .strength(3.0f, 6.0f)
-                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .pistonBehavior(PistonBehavior.IGNORE)
                     .luminance((state) -> 8),
             true,
             true
+    );
+
+    public static final Block SWEET_BERRIES_BLOCK = register(
+            "sweet_berries_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PALE_GREEN)
+                    .sounds(BlockSoundGroup.GRASS)
+                    .burnable()
+                    .strength(1.5f, 1.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
+    );
+
+    public static final Block GLOW_BERRIES_BLOCK = register(
+            "glow_berries_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.DARK_GREEN)
+                    .sounds(BlockSoundGroup.CAVE_VINES)
+                    .burnable()
+                    .strength(1.5f, 1.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
+    );
+
+    public static final Block GOLDEN_CARROT_BLOCK = register(
+            "golden_carrot_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.TERRACOTTA_YELLOW)
+                    .sounds(BlockSoundGroup.METAL)
+                    .requiresTool()
+                    .burnable()
+                    .strength(3.0f, 5.5f)
+                    .pistonBehavior(PistonBehavior.IGNORE),
+            true,
+            false
+    );
+
+    public static final Block POTATO_BLOCK = register(
+            "potato_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY)
+                    .sounds(BlockSoundGroup.BAMBOO_WOOD)
+                    .burnable()
+                    .strength(2.5f, 2.5f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
     );
 
     public static final Block PORK_BLOCK = register(
@@ -83,10 +136,23 @@ public class ModBlocks {
             "cooked_pork_block",
             SwordBreakableBlock::new,
             AbstractBlock.Settings.create()
-                    .mapColor(MapColor.RED)
+                    .mapColor(MapColor.ORANGE)
                     .sounds(BlockSoundGroup.RESIN)
                     .burnable()
                     .strength(2.2f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            true,
+            false
+    );
+
+    public static final Block BREAD_BLOCK = register(
+            "bread_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BROWN)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+                    .strength(2.2f, 2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
             true,
             false

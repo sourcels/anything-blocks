@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "anything-blocks:apple_block"
+    "anything-blocks:apple_block",
+    "anything-blocks:sweet_berries_block",
+    "anything-blocks:glow_berries_block",
+    "anything-blocks:potato_block",
+    "anything-blocks:bread_block"
   ]
 }

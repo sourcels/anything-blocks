@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "anything-blocks:sweet_berries_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:sweet_berries"
+  }
+}

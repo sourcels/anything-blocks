@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "anything-blocks:block/golden_carrot_block"
+  }
+}
