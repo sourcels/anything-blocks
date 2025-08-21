@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 1260,
+  "experience": 0.9,
+  "ingredient": "anything-blocks:chorus_fruit_block",
+  "result": {
+    "id": "anything-blocks:popped_chorus_fruit_block"
+  }
+}

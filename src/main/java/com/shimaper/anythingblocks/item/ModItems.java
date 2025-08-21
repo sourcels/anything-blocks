@@ -36,19 +36,18 @@ public class ModItems {
             Identifier.of(AnythingBlocks.MOD_ID, "misc")
     );
 
-    // Item groups with proper localization paths
     public static final ItemGroup FOOD_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
             .displayName(Text.translatable("itemGroup.anything-blocks.food"))
             .build();
 
     public static final ItemGroup MATERIAL_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
+            .icon(() -> new ItemStack(ModBlocks.POPPED_CHORUS_FRUIT_BLOCK.asItem()))
             .displayName(Text.translatable("itemGroup.anything-blocks.material"))
             .build();
 
     public static final ItemGroup MISC_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ModBlocks.GOLDEN_APPLE_BLOCK.asItem()))
+            .icon(() -> new ItemStack(ModBlocks.BREAD_BLOCK.asItem()))
             .displayName(Text.translatable("itemGroup.anything-blocks.misc"))
             .build();
 

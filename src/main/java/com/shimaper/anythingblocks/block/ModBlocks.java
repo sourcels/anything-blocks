@@ -47,7 +47,7 @@ public class ModBlocks {
             BLOCK_GROUPS.put(group, new ArrayList<>());
         }
     }
-
+// ---------------------------------------------------- FOOD BLOCKS --------------------------------------------------//
     public static final Block APPLE_BLOCK = register(
             "apple_block",
             Block::new,
@@ -268,6 +268,21 @@ public class ModBlocks {
                     .strength(2.2f, 2.2f)
                     .pistonBehavior(PistonBehavior.DESTROY),
             BlockGroup.FOOD,
+            false
+    );
+
+// ------------------------------------------------ MATERIAL BLOCKS --------------------------------------------------//
+
+    public static final Block POPPED_CHORUS_FRUIT_BLOCK = register(
+            "popped_chorus_fruit_block",
+            Block::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.PURPLE)
+                    .sounds(BlockSoundGroup.WOOD)
+                    .burnable()
+                    .strength(2.2f, 2.2f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.MATERIAL,
             false
     );
 
