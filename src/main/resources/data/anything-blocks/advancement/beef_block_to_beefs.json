@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_porkchop": {
+    "has_beef_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": ["minecraft:cooked_porkchop"]
+            "items": "anything-blocks:beef_block"
           }
         ]
       }
@@ -14,19 +14,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "anything-blocks:cooked_pork_block"
+        "recipe": "anything-blocks:beef_block_to_beefs"
       }
     }
   },
   "requirements": [
     [
-      "has_cooked_porkchop",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_beef_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "anything-blocks:cooked_pork_block"
+      "anything-blocks:beef_block_to_beefs"
     ]
   }
 }

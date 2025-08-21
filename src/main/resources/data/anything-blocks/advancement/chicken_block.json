@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_porkchop": {
+    "has_chicken": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": ["minecraft:cooked_porkchop"]
+            "items": ["minecraft:chicken"]
           }
         ]
       }
@@ -14,19 +14,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "anything-blocks:cooked_pork_block"
+        "recipe": "anything-blocks:chicken_block"
       }
     }
   },
   "requirements": [
     [
-      "has_cooked_porkchop",
+      "has_chicken",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "anything-blocks:cooked_pork_block"
+      "anything-blocks:chicken_block"
     ]
   }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 1260,
+  "experience": 3.15,
+  "ingredient": "anything-blocks:potato_block",
+  "result": {
+    "id": "anything-blocks:baked_potato_block"
+  }
+}

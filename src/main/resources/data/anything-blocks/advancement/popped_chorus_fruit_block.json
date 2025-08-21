@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_porkchop": {
+    "has_popped_chorus_fruit": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": ["minecraft:cooked_porkchop"]
+            "items": ["minecraft:popped_chorus_fruit"]
           }
         ]
       }
@@ -14,19 +14,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "anything-blocks:cooked_pork_block"
+        "recipe": "anything-blocks:popped_chorus_fruit_block"
       }
     }
   },
   "requirements": [
     [
-      "has_cooked_porkchop",
+      "has_popped_chorus_fruit",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "anything-blocks:cooked_pork_block"
+      "anything-blocks:popped_chorus_fruit_block"
     ]
   }
 }

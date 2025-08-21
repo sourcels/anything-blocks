@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cooked_porkchop": {
+    "has_golden_carrot_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": ["minecraft:cooked_porkchop"]
+            "items": "anything-blocks:golden_carrot_block"
           }
         ]
       }
@@ -14,19 +14,19 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "anything-blocks:cooked_pork_block"
+        "recipe": "anything-blocks:golden_carrot_block_to_golden_carrots"
       }
     }
   },
   "requirements": [
     [
-      "has_cooked_porkchop",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_carrot_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "anything-blocks:cooked_pork_block"
+      "anything-blocks:golden_carrot_block_to_golden_carrots"
     ]
   }
 }

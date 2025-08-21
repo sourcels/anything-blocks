@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pork": {
+    "has_porkchop": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": ["minecraft:pork"]
+            "items": ["minecraft:porkchop"]
           }
         ]
       }
@@ -20,7 +20,7 @@
   },
   "requirements": [
     [
-      "has_pork",
+      "has_porkchop",
       "has_the_recipe"
     ]
   ],

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "anything-blocks:chicken_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:chicken"
+  }
+}
