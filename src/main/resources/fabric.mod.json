@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "anything-blocks",
-	"version": "${version}",
+	"version": "${version}+fabric",
     "environment": "*",
     "depends": {
       "fabricloader": ">=0.17.2",
@@ -18,9 +18,9 @@
 		"sourcels"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/anything-blocks",
-        "issues": "https://github.com/sourcels/anything-blocks/issues",
-		"sources": "https://github.com/sourcels/anything-blocks"
+      "homepage": "https://modrinth.com/mod/anything-blocks",
+      "sources": "https://github.com/sourcels/anything-blocks",
+      "issues": "https://github.com/sourcels/anything-blocks/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/anything-blocks/icon.png",
@@ -34,5 +34,15 @@
 		"fabric-datagen": [
 			"com.shimaper.anythingblocks.AnythingBlocksDataGenerator"
 		]
-	}
+
+	},
+    "custom": {
+      "modmenu": {
+        "links": {
+          "modmenu.discord": "",
+          "modmenu.donate": ""
+        },
+        "update_checker": true
+      }
+    }
 }

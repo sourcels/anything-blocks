@@ -323,6 +323,19 @@ public class ModBlocks {
             false
     );
 
+    public static final Block COOKED_RABBIT_BLOCK = register(
+            "cooked_rabbit_block",
+            SwordBreakableBlock::new,
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.ORANGE)
+                    .sounds(BlockSoundGroup.RESIN)
+                    .burnable()
+                    .strength(2.2f, 2.0f)
+                    .pistonBehavior(PistonBehavior.DESTROY),
+            BlockGroup.FOOD,
+            false
+    );
+
     public static final Block BREAD_BLOCK = register(
             "bread_block",
             Block::new,

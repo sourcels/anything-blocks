@@ -37,5 +37,9 @@
   "itemGroup.anything-blocks.material": "Material Blocks",
   "item.anything-blocks.popped_chorus_fruit_block": "Block of Popped Chorus Fruit",
 
-  "itemGroup.anything-blocks.misc": "Misc Blocks"
+  "itemGroup.anything-blocks.misc": "Misc Blocks",
+
+  "modmenu.nameTranslation.anything-blocks": "Anything Blocks",
+  "modmenu.descriptionTranslation.anything-blocks": "Turn any item or food into blocks!",
+  "modmenu.summaryTranslation.anything-blocks": "Mod that provides to turn any item or food into blocks!"
 }
