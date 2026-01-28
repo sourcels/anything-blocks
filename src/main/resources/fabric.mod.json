@@ -5,7 +5,7 @@
     "environment": "*",
     "depends": {
       "fabricloader": ">=0.17.2",
-      "minecraft": "~1.21.8",
+      "minecraft": "~1.21.11",
       "java": ">=21",
       "fabric-api": "*"
     },
@@ -27,14 +27,7 @@
 	"entrypoints": {
 		"main": [
 			"com.shimaper.anythingblocks.AnythingBlocks"
-		],
-		"client": [
-			"com.shimaper.anythingblocks.AnythingBlocksClient"
-		],
-		"fabric-datagen": [
-			"com.shimaper.anythingblocks.AnythingBlocksDataGenerator"
 		]
-
 	},
     "custom": {
       "modmenu": {

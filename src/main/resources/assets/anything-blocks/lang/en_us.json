@@ -34,12 +34,30 @@
   "item.anything-blocks.rotten_flesh_block": "Block of Rotten Flesh",
   "item.anything-blocks.spider_eye_block": "Block of Spider Eyes",
 
-  "itemGroup.anything-blocks.material": "Material Blocks",
+  "itemGroup.anything-blocks.material": "Ingredients Blocks",
+  "item.anything-blocks.charcoal_block": "Block of Charcoal",
+  "item.anything-blocks.netherite_scrap_block": "Block of Netherite Scrap",
+  "item.anything-blocks.flint_block": "Block of Flint",
+  "item.anything-blocks.bone_block": "Block of Bones",
+  "item.anything-blocks.string_block": "Block of String",
+  "item.anything-blocks.feather_block": "Block of Feather",
+  "item.anything-blocks.egg_block": "Block of Eggs",
+  "item.anything-blocks.brown_egg_block": "Block of Brown Eggs",
+  "item.anything-blocks.blue_egg_block": "Block of Blue Eggs",
+  "item.anything-blocks.leather_block": "Block of Leather",
+  "item.anything-blocks.rabbit_hide_block": "Block of Rabbit Hide",
+  "item.anything-blocks.honeycomb_block": "Block of Honeycomb",
+  "item.anything-blocks.ink_sac_block": "Block of Inc Sac",
+  "item.anything-blocks.glow_ink_sac_block": "Block of Glow Inc Sac",
+  "item.anything-blocks.turtle_scute_block": "Block of Turtle Scute",
+  "item.anything-blocks.nautilus_shell_block": "§eBlock of Nautilus Shell",
+  "item.anything-blocks.blaze_rod_block": "Block of Blaze Rod",
   "item.anything-blocks.popped_chorus_fruit_block": "Block of Popped Chorus Fruit",
+  "item.anything-blocks.sugar_block": "Block of Sugar",
 
   "itemGroup.anything-blocks.misc": "Misc Blocks",
 
-  "modmenu.nameTranslation.anything-blocks": "Anything Blocks",
+  "modmenu.nameTranslation.anything-blocks": "§eAnything Blocks",
   "modmenu.descriptionTranslation.anything-blocks": "Turn any item or food into blocks!",
   "modmenu.summaryTranslation.anything-blocks": "Mod that provides to turn any item or food into blocks!"
 }

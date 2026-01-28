@@ -6,7 +6,8 @@ build/
 out/
 classes/
 .idea
-gradle
+gradle/
+run/
 
 # eclipse
 

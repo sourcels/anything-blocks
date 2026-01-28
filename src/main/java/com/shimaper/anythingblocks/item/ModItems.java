@@ -18,6 +18,7 @@ import net.minecraft.util.Identifier;
 import java.util.*;
 import java.util.function.Function;
 
+
 public class ModItems {
     private static final Map<ModBlocks.BlockGroup, List<Item>> ITEM_GROUPS = new EnumMap<>(ModBlocks.BlockGroup.class);
 
